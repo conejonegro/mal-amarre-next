@@ -6,4 +6,4 @@ const ENV ={
     }
 }
 
-export default ENV;
+export { ENV };
