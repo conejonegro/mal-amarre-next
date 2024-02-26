@@ -1,0 +1,1 @@
+import { RegistroLayout } from "./RegistroLayout";

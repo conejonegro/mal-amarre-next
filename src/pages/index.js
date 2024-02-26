@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ENV } from "@/utils/constants";
+import  styles  from  "@/scss/home.module.scss"
 
 function Index() {
 
@@ -51,11 +52,13 @@ function Index() {
 
   return (
     <>
-    { obrasDatos &&
-      obrasDatos.map((obra) => (
-        <p>{obra.attributes.titulo}</p>
-      )) 
-    }
+    <div className={styles.productsContainer}>
+      { obrasDatos &&
+        obrasDatos.map((obra) => (
+          <p key={obra.attributes.titulo}>{obra.attributes.titulo}</p>
+        )) 
+      }
+    </div>
     </>
   );
 }

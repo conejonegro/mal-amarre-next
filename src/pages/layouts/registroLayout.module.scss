@@ -1,0 +1,18 @@
+.rightContainer{
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    justify-content: center;
+}
+.childrenContainer{
+   width: 50%;
+   justify-content: center;
+   display: flex;
+   flex-direction: column;
+   row-gap: 32px;
+}
+.layoutContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
