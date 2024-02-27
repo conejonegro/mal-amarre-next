@@ -2,14 +2,21 @@ import { Form, FormField, Button } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { validationSchemaIniciar, initialValuesIniciar } from "@/utils/registro.form";
 import { ENV } from "@/utils";
+import useLoginHook from "@/hooks/useLogin";
+// import { useState } from "react";
 
 function IniciarSesionForm() {
+
+    // const [ accessTokenState, setTokenaccessTokenState ] = useState();
+    // const { accessToken } = useLoginHook()
 
     const formik = useFormik({
         initialValues: initialValuesIniciar(),
         validationSchema: validationSchemaIniciar(),
         validateOnChange: false,
+
         onSubmit: async (formValues) => {
+
           const opciones = {
             method: "POST",
             headers: {
@@ -25,11 +32,16 @@ function IniciarSesionForm() {
             );
             const datos = await response.json();
             console.log("LOGIN CORRECTO",datos);
+
+            // setTokenaccessTokenState(datos.jwt)
+            console.log("ACCESS TOKEN GUARDADO", datos.jwt)
+
             // router.push("/");
     
           } catch (error) {
             console.log("ERROR", error);
           }
+
         },
       });
 
