@@ -1,6 +1,5 @@
 import { RegistroLayout } from "./layouts/RegistroLayout";
 import { Form, FormField, Checkbox, Button } from "semantic-ui-react";
-import { useState, useEffect } from "react";
 import { ENV } from "@/utils";
 import { useFormik } from "formik";
 import { initialValues, validationSchema } from "@/utils/registro.form";
@@ -30,7 +29,7 @@ function Registro() {
         );
         const datos = await response.json();
         console.log(datos);
-        router.push("/");
+        router.push("/iniciar-sesion");
 
       } catch (error) {
         console.log("ERROR", error);

@@ -5,11 +5,12 @@
     justify-content: center;
 }
 .childrenContainer{
-   width: 50%;
+   
    justify-content: center;
    display: flex;
    flex-direction: column;
    row-gap: 32px;
+   margin: 0 auto;
 }
 .layoutContainer{
     display: flex;
