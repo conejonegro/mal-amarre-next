@@ -10,7 +10,6 @@ function IniciarSesionForm() {
         validationSchema: validationSchemaIniciar(),
         validateOnChange: false,
         onSubmit: async (formValues) => {
-            console.log("hola")
           const opciones = {
             method: "POST",
             headers: {
@@ -25,8 +24,8 @@ function IniciarSesionForm() {
               opciones
             );
             const datos = await response.json();
-            console.log(datos);
-            router.push("/");
+            console.log("LOGIN CORRECTO",datos);
+            // router.push("/");
     
           } catch (error) {
             console.log("ERROR", error);
@@ -67,4 +66,4 @@ function IniciarSesionForm() {
      );
 }
 
-export {IniciarSesionForm};
+export { IniciarSesionForm };

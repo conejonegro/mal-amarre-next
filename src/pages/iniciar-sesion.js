@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "../scss/iniciar-sesion.module.scss";
 import { RegistroLayout } from "./layouts/RegistroLayout";
-import {IniciarSesionForm} from "@/components/iniciar-sesion/";
+import { IniciarSesionForm } from "@/components/iniciar-sesion/";
 
 function IniciarSesion(  ) {
 
