@@ -28,6 +28,10 @@ const navigationItems = [
       link: "/iniciar-sesion",
     },
     {
+      text: "Mi cuenta",
+      link: "/cuenta/mi-cuenta",
+    },
+    {
       text: "Contacto",
       link: "/",
     },

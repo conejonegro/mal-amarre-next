@@ -1,7 +1,16 @@
 import { Image } from "semantic-ui-react";
 import styles from "./registroLayout.module.scss"
+import useLoginHook from "@/hooks/useLogin";
+import { useRouter } from "next/router";
 
 function RegistroLayout( props ) {
+
+    const { user } = useLoginHook()
+    const router = useRouter()
+    console.log("USER", user)
+    {user &&
+        router.push("/")
+    }
 
     const { children } = props;
 

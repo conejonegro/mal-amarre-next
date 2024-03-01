@@ -1,14 +1,22 @@
 import { Form, FormField, Button } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { validationSchemaIniciar, initialValuesIniciar } from "@/utils/registro.form";
-import { ENV } from "@/utils";
 import useLoginHook from "@/hooks/useLogin";
-// import { useState } from "react";
+import login from "@/api/loginCall";
+import { useRouter } from "next/router";
 
 function IniciarSesionForm() {
 
     // const [ accessTokenState, setTokenaccessTokenState ] = useState();
     // const { accessToken } = useLoginHook()
+    const data = useLoginHook();
+    const { loginFromContext } = data;
+    //  console.log("DATOS TRAIDOS DESDE EL CONTEXT", data)
+    // const router = useRouter()
+    // { data &&
+    //     router.push("/")
+    // }
+    console.log("HOOK", useLoginHook())
 
     const formik = useFormik({
         initialValues: initialValuesIniciar(),
@@ -17,31 +25,15 @@ function IniciarSesionForm() {
 
         onSubmit: async (formValues) => {
 
-          const opciones = {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formValues),
-          };
-    
           try {
-            const response = await fetch(
-              `${ENV.API_URL}/auth/local`,
-              opciones
-            );
-            const datos = await response.json();
-            console.log("LOGIN CORRECTO",datos);
-
-            // setTokenaccessTokenState(datos.jwt)
-            console.log("ACCESS TOKEN GUARDADO", datos.jwt)
-
-            // router.push("/");
-    
+            const datos =  await login(formValues)
+            // console.log("MIS DATOS DESDE FORMA", datos)
+            loginFromContext(datos.jwt, datos.user)
+            
           } catch (error) {
-            console.log("ERROR", error);
+            console.log(error)
           }
-
+        
         },
       });
 

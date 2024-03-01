@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import { ENV } from "@/utils/constants";
-import  styles  from  "@/scss/home.module.scss"
+import  styles  from  "@/scss/home.module.scss";
+import useLoginHook from "@/hooks/useLogin";
 
 function Index() {
 
   const [ obrasDatos, setObrasDatos ] = useState();
+  const datos = useLoginHook()
+  console.log("DATOS DESDE INDEX", datos);
+  
 
   const opciones = {
     method: "GET", // Método HTTP (GET, POST, PUT, DELETE, etc.)
