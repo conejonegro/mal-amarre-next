@@ -9,7 +9,7 @@ export default setTokenLocalStorage;
 
 // GET LOCAL STORAGE
  function getTokenLocalStorage(){
-    console.log(localStorage.getItem('token'))
+
     return localStorage.getItem('token');
 
 }

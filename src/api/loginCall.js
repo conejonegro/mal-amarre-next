@@ -16,7 +16,7 @@ async function login(formValues) {
         opciones
       );
       const datos = await response.json();
-      console.log("LOGIN CORRECTO", datos);
+
   
       return datos; // Retornar datos en caso de necesitarlos en el componente
     } catch (error) {

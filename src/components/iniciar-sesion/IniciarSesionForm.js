@@ -11,12 +11,6 @@ function IniciarSesionForm() {
     // const { accessToken } = useLoginHook()
     const data = useLoginHook();
     const { loginFromContext } = data;
-    //  console.log("DATOS TRAIDOS DESDE EL CONTEXT", data)
-    // const router = useRouter()
-    // { data &&
-    //     router.push("/")
-    // }
-    console.log("HOOK", useLoginHook())
 
     const formik = useFormik({
         initialValues: initialValuesIniciar(),
@@ -27,7 +21,7 @@ function IniciarSesionForm() {
 
           try {
             const datos =  await login(formValues)
-            // console.log("MIS DATOS DESDE FORMA", datos)
+           
             loginFromContext(datos.jwt, datos.user)
             
           } catch (error) {

@@ -6,9 +6,9 @@ import { removeTokenFromLocalStorage } from "./setTokenLocalStorage";
 function hasExpired(token){
 
     const tokenDecode = jwtDecode(token);
-    // console.log(tokenDecode);
+    
     const expireDate = tokenDecode.exp * 1000
-    // console.log(expireDate);
+   
     const currentDate = new Date()
     if(!token){
         removeTokenFromLocalStorage();
@@ -16,8 +16,8 @@ function hasExpired(token){
         return true;
     }
     if( currentDate > expireDate ){
-        // log out the user
-        console.log("LOGOUT")
+       
+      
 
         removeTokenFromLocalStorage();
 

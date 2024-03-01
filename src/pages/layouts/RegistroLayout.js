@@ -2,16 +2,21 @@ import { Image } from "semantic-ui-react";
 import styles from "./registroLayout.module.scss"
 import useLoginHook from "@/hooks/useLogin";
 import { useRouter } from "next/router";
+import { useEffect,useState } from "react";
 
 function RegistroLayout( props ) {
+    const [token, setToken] = useState()
+    
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        setToken(token)
+    },[])
 
-    const { user } = useLoginHook()
     const router = useRouter()
-    console.log("USER", user)
-    {user &&
+    { token &&
         router.push("/")
     }
-
+        
     const { children } = props;
 
     return ( 

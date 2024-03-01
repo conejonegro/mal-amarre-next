@@ -18,25 +18,18 @@ function LoginContextProvider(props) {
 
   useEffect(() => {
     const storedToken = getTokenLocalStorage();
-    if (!storedToken) {
-      logout();
-      setLoading(false);
-      return;
-    }
-    if (hasExpired(storedToken)) {
-      logout();
-      setLoading(false);
-      return;
-    }
 
-    if (router.pathname === "/iniciar-sesion") {
-        router.push("/");
-        return;
-      }
-
-    // Si llegamos aquí, el token existe y no ha expirado, podemos continuar con la sesión
-    setToken(storedToken);
-    setUser(null); // Puedes obtener el usuario de tu backend si lo necesitas
+    // if (!storedToken) {
+    //   logout();
+    //   setLoading(false);
+    //   return;
+    // }
+    // if (hasExpired(storedToken)) {
+    //   logout();
+    //   setLoading(false);
+    //   return;
+    // }
+    
     setLoading(false);
   
 
@@ -57,7 +50,7 @@ function LoginContextProvider(props) {
   }
 
   const logout = () => {
-    console.log("LOG OUT");
+
     setToken(null);
     setTokenLocalStorage(null);
     setUser(null);

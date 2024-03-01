@@ -28,7 +28,7 @@ function Registro() {
           opciones
         );
         const datos = await response.json();
-        console.log(datos);
+       
         router.push("/iniciar-sesion");
 
       } catch (error) {

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 function Micuenta() {
 
     const datosDeUsuario = useLoginHook();
-    console.log("DATOS DE USUARIO", datosDeUsuario);
+   
 
     const [TOKEN, setTOKEN] = useState(null);
 

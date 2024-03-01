@@ -7,7 +7,7 @@ function Index() {
 
   const [ obrasDatos, setObrasDatos ] = useState();
   const datos = useLoginHook()
-  console.log("DATOS DESDE INDEX", datos);
+
   
 
   const opciones = {
@@ -33,7 +33,6 @@ function Index() {
     obrasApiCall();
   }, [])
 
-  console.log(obrasDatos)
 
   // fetch("http://localhost:1337/api/obras", opciones)
   //   .then((res) => {
