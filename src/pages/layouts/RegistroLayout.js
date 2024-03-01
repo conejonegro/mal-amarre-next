@@ -6,16 +6,15 @@ import { useEffect,useState } from "react";
 
 function RegistroLayout( props ) {
     const [token, setToken] = useState()
+    const router = useRouter()
     
     useEffect(() => {
-        const token = localStorage.getItem("token")
-        setToken(token)
-    },[])
-
-    const router = useRouter()
-    { token &&
-        router.push("/")
-    }
+        const token = localStorage.getItem("token");
+        if (token) {
+            router.push("/");
+           
+        }
+    }, []);
         
     const { children } = props;
 

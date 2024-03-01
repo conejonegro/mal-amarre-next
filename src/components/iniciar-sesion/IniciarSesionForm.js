@@ -4,14 +4,14 @@ import { validationSchemaIniciar, initialValuesIniciar } from "@/utils/registro.
 import useLoginHook from "@/hooks/useLogin";
 import login from "@/api/loginCall";
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
 function IniciarSesionForm() {
 
-    // const [ accessTokenState, setTokenaccessTokenState ] = useState();
-    // const { accessToken } = useLoginHook()
     const data = useLoginHook();
     const { loginFromContext } = data;
-
+    const router = useRouter()
+    
     const formik = useFormik({
         initialValues: initialValuesIniciar(),
         validationSchema: validationSchemaIniciar(),
@@ -30,6 +30,13 @@ function IniciarSesionForm() {
         
         },
       });
+
+      useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            router.push("/");
+        }
+    }, [formik]);
 
     return ( 
         <Form type="submit" onSubmit={formik.handleSubmit}>

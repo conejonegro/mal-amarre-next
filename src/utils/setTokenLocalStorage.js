@@ -5,7 +5,7 @@ function setTokenLocalStorage(token) {
 
 }
 
-export default setTokenLocalStorage;
+export {setTokenLocalStorage};
 
 // GET LOCAL STORAGE
  function getTokenLocalStorage(){
@@ -23,3 +23,20 @@ export { getTokenLocalStorage };
 }
 
 export { removeTokenFromLocalStorage };
+
+// Add User to Local Storage
+ function addUserLocalStorage(user){
+    const userString = JSON.stringify(user);
+    localStorage.setItem('user', userString);
+
+}
+
+export { addUserLocalStorage };
+
+// Add User to Local Storage
+ function removeUserFromStorage(){
+    return localStorage.removeItem('user');
+
+}
+
+export { removeUserFromStorage };
