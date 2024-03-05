@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "@/components/navigation/nav.module.scss"
 import { Icon, Image } from "semantic-ui-react";
+import CartAccount from "../cart-account/CartAccount";
 
 function Nav() {
   return (
@@ -13,7 +14,7 @@ function Nav() {
           return <li key={item.text}><Link href={item.link}>{item.text}</Link></li>;
         })}
       </ul>
-      {/* <Link href="/"><Icon name="close"></Icon></Link> */}
+      <CartAccount/>
     </nav>
   );
 }

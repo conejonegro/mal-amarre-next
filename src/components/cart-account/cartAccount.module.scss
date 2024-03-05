@@ -1,0 +1,21 @@
+@import "../../scss/index.scss";
+
+.cart{
+    color: $text-primary;
+}
+.counter{
+    border-radius: 14px !important;
+    background-color: $primary;
+}
+.userButton{
+    background-color: $background-tertiary;
+    color: $text-primary;
+    display: flex !important;
+    justify-content: flex-start;
+    margin: 0 !important;
+    align-items: center;
+    padding: 12px !important;
+    > i{
+        margin: 0 !important;
+    }
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ENV } from "@/utils/constants";
 import  styles  from  "@/scss/home.module.scss";
 import useLoginHook from "@/hooks/useLogin";
+import { MainLayout } from "./layouts/main";
 
 function Index() {
 
@@ -52,17 +53,16 @@ function Index() {
   //   });
 
 
-
   return (
-    <>
-    <div className={styles.productsContainer}>
-      { obrasDatos &&
-        obrasDatos.map((obra) => (
-          <p key={obra.attributes.titulo}>{obra.attributes.titulo}</p>
-        )) 
-      }
-    </div>
-    </>
+    <MainLayout>
+      <div className={styles.productsContainer}>
+        { obrasDatos &&
+          obrasDatos.map((obra) => (
+            <p key={obra.attributes.titulo}>{obra.attributes.titulo}</p>
+          )) 
+        }
+      </div>
+    </MainLayout>
   );
 }
 
