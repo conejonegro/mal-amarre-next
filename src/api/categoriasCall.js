@@ -4,9 +4,10 @@ async function CategoriasCall() {
     
     try {
         
-        const response = await fetch(ENV.ENDPOINTS.CATEGORIES)
+        const response = await fetch(`${ENV.ENDPOINTS.CATEGORIES}?populate=tecnica_logo`)
         const categorias = await response.json();
-        console.log(categorias.data)
+        // console.log("My nigga", categorias.data)
+        return categorias
 
     } catch (error) {
         console.log(error);

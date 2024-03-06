@@ -1,6 +1,7 @@
 import { Image, Container } from "semantic-ui-react";
 import styles from "@/pages/layouts/main/mainLayout.module.scss"
 import classNames from "classnames";
+import Footer from "@/components/footer/Footer";
 
 function MainLayout( props ) {
         
@@ -11,7 +12,9 @@ function MainLayout( props ) {
             <Container className={classNames({ fluid })}>
                 {children}
             </Container>
+
             
+            <Footer/>
         </div>
         
      );
