@@ -10,8 +10,8 @@ export default function App(props) {
 
   return (
     <>
-       <Nav />
-        <LoginContextProvider>  
+      <LoginContextProvider>  
+          <Nav />
           <Component {...pageProps} />
         </LoginContextProvider> 
      </>

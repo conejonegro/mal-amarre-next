@@ -1,8 +1,13 @@
 import { Label, Icon, Image, Button } from "semantic-ui-react";
 import styles from "@/components/cart-account/cartAccount.module.scss";
 import { useRouter } from "next/router";
+import useLoginHook from "@/hooks/useLogin";
 
 function CartAccount() {
+
+    const datosDeUsuario = useLoginHook();
+    const { user } = datosDeUsuario
+    console.log(user);
 
     const router = useRouter();
 
@@ -19,9 +24,12 @@ function CartAccount() {
         <Icon name="cart" />
       </Button>
       <Label className={styles.counter}>7</Label>
-      <Button className={styles.userButton} onClick={goToAccount}>
-        <Icon name="user" />
-      </Button>
+      {user && (
+         <Button className={styles.userButton} onClick={goToAccount}>
+         <Icon name="user" />
+       </Button>
+      )}
+     
     </div>
   );
 }

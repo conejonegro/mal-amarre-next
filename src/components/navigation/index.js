@@ -2,8 +2,12 @@ import Link from "next/link";
 import styles from "@/components/navigation/nav.module.scss"
 import { Icon, Image } from "semantic-ui-react";
 import CartAccount from "../cart-account/CartAccount";
+import CategoriasCall from "@/api/categoriasCall";
 
 function Nav() {
+
+  CategoriasCall()
+
   return (
     <nav className={styles.navMain}>
       <Link href="/">

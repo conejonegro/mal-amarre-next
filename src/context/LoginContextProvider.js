@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import {
   setTokenLocalStorage,
   removeTokenFromLocalStorage,
@@ -17,11 +17,16 @@ function LoginContextProvider(props) {
   const [token, setToken] = useState();
   const [loading, setLoading] = useState();
 
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    setUser(user)
+}, []);
+
   async function loginFromContext(token, userME) {
     try {
       setToken(token);
       setTokenLocalStorage(token);
-       setUser(userME);
+      setUser(userME);
       addUserLocalStorage(userME);
       setLoading(false);
     } catch (error) {
