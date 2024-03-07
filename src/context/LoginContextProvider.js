@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { useState,useEffect } from "react";
+import { useRouter } from "next/router";
 import {
   setTokenLocalStorage,
   removeTokenFromLocalStorage,
@@ -16,6 +17,7 @@ function LoginContextProvider(props) {
   const [user, setUser] = useState();
   const [token, setToken] = useState();
   const [loading, setLoading] = useState();
+  const router = useRouter()
 
   useEffect(() => {
     const user = localStorage.getItem("user");
@@ -40,6 +42,7 @@ function LoginContextProvider(props) {
     removeUserFromStorage();
     setToken(null);
     setUser(null);
+    router.push("/")
   };
 
   const { children } = props;
